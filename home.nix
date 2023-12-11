@@ -22,7 +22,7 @@
     htop
     jq
     killall
-    lunarvim
+    lazyvim
     mosh
     neovim
     procs
@@ -65,12 +65,12 @@
     # language servers
     ccls # c / c++
     gopls
-    nodePackages.typescript-language-server
-    pkgs.nodePackages.vscode-langservers-extracted # html, css, json, eslint
-    nodePackages.yaml-language-server
-    sumneko-lua-language-server
+    # nodePackages.typescript-language-server
+    # pkgs.nodePackages.vscode-langservers-extracted # html, css, json, eslint
+    # nodePackages.yaml-language-server
+    lua-language-server
     nil # nix
-    nodePackages.pyright
+    # nodePackages.pyright
 
     # formatters and linters
     alejandra # nix
@@ -97,7 +97,7 @@ in {
     username = "${username}";
     homeDirectory = "/home/${username}";
 
-    sessionVariables.EDITOR = "lvim";
+    sessionVariables.EDITOR = "nvim";
     # FIXME: set your preferred $SHELL
     sessionVariables.SHELL = "/etc/profiles/per-user/${username}/bin/zsh";
   };
@@ -112,8 +112,8 @@ in {
       # pkgs.unstable.some-other-package
     ];
 
-  # FIXME: if you want to version your LunarVim config, add it to the root of this repo and uncomment the next line
-  # home.file.".config/lvim/config.lua".source = ./lvim_config.lua;
+  # FIXME: if you want to version your nvim config, add it to the root of this repo and uncomment the next line
+  # home.file.".config/nvim/config.lua".source = ./nvim_config.lua;
 
   programs = {
     home-manager.enable = true;
