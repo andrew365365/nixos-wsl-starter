@@ -22,7 +22,8 @@
     htop
     jq
     killall
-    lazyvim
+    nnn
+    eza
     mosh
     neovim
     procs
@@ -34,6 +35,7 @@
     vim
     wget
     zip
+    tldr
   ];
 
   stable-packages = with pkgs; [
@@ -47,9 +49,9 @@
     rustup
     go
     lua
-    nodejs
+    # nodejs
     python3
-    typescript
+    # typescript
 
     # rust stuff
     cargo-cache
@@ -79,7 +81,7 @@
     deadnix # nix
     golangci-lint
     lua52Packages.luacheck
-    nodePackages.prettier
+    # nodePackages.prettier
     shellcheck
     shfmt
     statix # nix
@@ -160,8 +162,8 @@ in {
         side-by-side = true;
         navigate = true;
       };
-      userEmail = ""; # FIXME: set your git email
-      userName = ""; #FIXME: set your git username
+      userEmail = "92188271+andrew365365@users.noreply.github.com"; # FIXME: set your git email
+      userName = "andy"; #FIXME: set your git username
       extraConfig = {
         # FIXME: uncomment the next lines if you want to be able to clone private https repos
         # url = {
@@ -182,6 +184,9 @@ in {
         diff = {
           colorMoved = "default";
         };
+	pull = {
+	rebase = true;
+	};
       };
     };
 
@@ -204,6 +209,10 @@ in {
           name = "fast-syntax-highlighting";
           src = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions";
         }
+	{
+	  name = "zsh-history-substring-search";
+	  src = "${pkgs.zsh-history-substring-search}/share/zsh/site-functions";
+	}
         {
           name = "zsh-nix-shell";
           file = "nix-shell.plugin.zsh";
