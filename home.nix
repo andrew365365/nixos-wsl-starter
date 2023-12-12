@@ -49,9 +49,10 @@
     rustup
     go
     lua
-    # nodejs
+    nodejs
     python3
-    # typescript
+    typescript
+    zig
 
     # rust stuff
     cargo-cache
