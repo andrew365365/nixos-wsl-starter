@@ -13,8 +13,8 @@
   networking.hostName = "${hostname}";
 
   networking.nameservers = [
-    75.75.75.75
-    75.75.75.76
+    "75.75.75.75"
+    "75.75.75.76"
   ];
 
   systemd.tmpfiles.rules = [
