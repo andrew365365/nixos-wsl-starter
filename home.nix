@@ -8,7 +8,6 @@
   ...
 }: let
   unstable-packages = with pkgs.unstable; [
-    # FIXME: select your core binaries that you always want on the bleeding-edge
     bat
     bottom
     coreutils
@@ -36,23 +35,25 @@
     wget
     zip
     tldr
+    lazygit
   ];
 
   stable-packages = with pkgs; [
-    # FIXME: customize these stable packages to your liking for the languages that you use
-
     # key tools
+    neovim-remote
     gh # for bootstrapping
     just
 
     # core languages
-    rustup
     go
     lua
     nodejs
-    python3
+    python312
     typescript
     zig
+    luarocks
+    clang
+    rustup
 
     # rust stuff
     cargo-cache
@@ -74,6 +75,7 @@
     lua-language-server
     nil # nix
     nodePackages.pyright
+    bash
 
     # formatters and linters
     alejandra # nix
@@ -101,7 +103,6 @@ in {
     homeDirectory = "/home/${username}";
 
     sessionVariables.EDITOR = "nvim";
-    # FIXME: set your preferred $SHELL
     sessionVariables.SHELL = "/etc/profiles/per-user/${username}/bin/zsh";
   };
 
@@ -124,7 +125,6 @@ in {
     nix-index.enableZshIntegration = true;
     nix-index-database.comma.enable = true;
 
-    # FIXME: disable this if you don't want to use the starship prompt
     starship.enable = true;
     starship.settings = {
       aws.disabled = true;
@@ -141,7 +141,6 @@ in {
       username.show_always = true;
     };
 
-    # FIXME: disable whatever you don't want
     fzf.enable = true;
     fzf.enableZshIntegration = true;
     lsd.enable = true;
@@ -164,18 +163,9 @@ in {
         side-by-side = true;
         navigate = true;
       };
-      userEmail = "92188271+andrew365365@users.noreply.github.com"; # FIXME: set your git email
-      userName = "andy"; #FIXME: set your git username
+      userEmail = "92188271+andrew365365@users.noreply.github.com";
+      userName = "andy";
       extraConfig = {
-        # FIXME: uncomment the next lines if you want to be able to clone private https repos
-        # url = {
-        #   "https://oauth2:${secrets.github_token}@github.com" = {
-        #     insteadOf = "https://github.com";
-        #   };
-        #   "https://oauth2:${secrets.gitlab_token}@gitlab.com" = {
-        #     insteadOf = "https://gitlab.com";
-        #   };
-        # };
         push = {
           default = "current";
           autoSetupRemote = true;

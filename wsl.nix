@@ -12,6 +12,11 @@
 
   networking.hostName = "${hostname}";
 
+  networking.nameservers = [
+    75.75.75.75
+    75.75.75.76
+  ];
+
   systemd.tmpfiles.rules = [
     "d /home/${username}/.config 0755 ${username} users"
     "d /home/${username}/.config/lvim 0755 ${username} users"
@@ -47,7 +52,7 @@
   };
 
   environment.systemPackages = [
-    (import ./win32yank.nix {inherit pkgs;})
+   # (import ./win32yank.nix {inherit pkgs;})
   ];
 
   home-manager.users.${username} = {
@@ -63,6 +68,7 @@
     wslConf.automount.root = "/mnt";
     wslConf.interop.appendWindowsPath = false;
     wslConf.network.generateHosts = false;
+    wslConf.network.generateResolvConf = false;
     defaultUser = username;
     startMenuLaunchers = true;
 
