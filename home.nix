@@ -55,6 +55,7 @@
     luarocks
     clang
     rustup
+    gcc
 
     # rust stuff
     cargo-cache
@@ -156,7 +157,7 @@ in {
     direnv.nix-direnv.enable = true;
 
     git = {
-      enable = true;
+      enable = false;
       package = pkgs.unstable.git;
       delta.enable = true;
       delta.options = {
@@ -164,21 +165,6 @@ in {
         side-by-side = true;
         navigate = true;
       };
-      userEmail = "92188271+andrew365365@users.noreply.github.com";
-      userName = "andy";
-      extraConfig = {
-        push = {
-          default = "current";
-          autoSetupRemote = true;
-        };
-        merge = {
-          conflictstyle = "diff3";
-        };
-        diff = {
-          colorMoved = "default";
-        };
-	pull = {
-	rebase = true;
 	};
       };
     };
