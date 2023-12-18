@@ -43,6 +43,7 @@
     neovim-remote
     gh # for bootstrapping
     just
+    trash-cli
 
     # core languages
     go
