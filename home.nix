@@ -101,7 +101,7 @@ in {
 
   home = {
     username = "${username}";
-    homedirectory = "/home/${username}";
+    homeDirectory = "/home/${username}";
 
     sessionvariables.editor = "nvim";
     sessionvariables.shell = "/etc/profiles/per-user/${username}/bin/zsh";
