@@ -70,12 +70,12 @@
     # language servers
     ccls # c / c++
     gopls
-    nodepackages.typescript-language-server
-    pkgs.nodepackages.vscode-langservers-extracted # html, css, json, eslint
-    nodepackages.yaml-language-server
+    pkgs.nodePackages.typescript-language-server
+    pkgs.nodePackages.vscode-langservers-extracted # html, css, json, eslint
+    pkgs.nodePackages.yaml-language-server
     lua-language-server
     nil # nix
-    nodepackages.pyright
+    pkgs.nodePackages.pyright
     bash
 
     # formatters and linters
@@ -84,8 +84,8 @@
     ruff # python
     deadnix # nix
     golangci-lint
-    lua52packages.luacheck
-    nodepackages.prettier
+    lua52Packages.luacheck
+    pkgs.nodePackages.prettier
     shellcheck
     shfmt
     statix # nix
@@ -97,14 +97,14 @@ in {
     nix-index-database.hmModules.nix-index
   ];
 
-  home.stateversion = "22.11";
+  home.stateVersion = "22.11";
 
   home = {
     username = "${username}";
     homeDirectory = "/home/${username}";
 
-    sessionvariables.editor = "nvim";
-    sessionvariables.shell = "/etc/profiles/per-user/${username}/bin/zsh";
+    sessionVariables.editor = "nvim";
+    sessionVariables.shell = "/etc/profiles/per-user/${username}/bin/zsh";
   };
 
   home.packages =
@@ -123,7 +123,7 @@ in {
   programs = {
     home-manager.enable = true;
     nix-index.enable = true;
-    nix-index.enablezshintegration = true;
+    nix-index.enableZshIntegration = true;
     nix-index-database.comma.enable = true;
 
     starship.enable = true;
@@ -134,16 +134,13 @@ in {
     };
 
     fzf.enable = true;
-    fzf.enablezshintegration = true;
+    fzf.enableZshIntegration = true;
     lsd.enable = true;
-    lsd.enablealiases = true;
+    lsd.enableAliases = true;
     zoxide.enable = true;
-    zoxide.enablezshintegration = true;
-    broot.enable = true;
-    broot.enablezshintegration = true;
-
+    zoxide.enableZshIntegration = true;
     direnv.enable = true;
-    direnv.enablezshintegration = true;
+    direnv.enableZshIntegration = true;
     direnv.nix-direnv.enable = true;
   };
 }
